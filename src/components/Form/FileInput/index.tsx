@@ -1,15 +1,7 @@
-import { FileList, FileListProps } from './FileList'
-import { ImagePreview, ImagePreviewProps } from './ImagePreview'
-import { Root, RootProps } from './Root'
-import { Trigger, TriggerProps } from './Trigger'
-import { Control, ControlProps } from './Control'
+import { Control } from './Control'
+import { FileList } from './FileList'
+import { ImagePreview } from './ImagePreview'
+import { Root } from './Root'
+import { Trigger } from './Trigger'
 
-export { FileList, ImagePreview, Root, Trigger, Control }
-
-export type {
-  FileListProps,
-  ImagePreviewProps,
-  RootProps,
-  TriggerProps,
-  ControlProps,
-}
+export { Control, FileList, ImagePreview, Root, Trigger }

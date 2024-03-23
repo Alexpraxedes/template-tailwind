@@ -3,9 +3,7 @@
 import { UploadCloud } from 'lucide-react'
 import { useFileInput } from './Root'
 
-export interface TriggerProps {}
-
-export function Trigger(props: TriggerProps) {
+export function Trigger() {
   const { id } = useFileInput()
 
   return (

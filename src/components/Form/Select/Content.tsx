@@ -1,7 +1,7 @@
 'use client'
 
-import * as Select from '@radix-ui/react-select'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
+import * as Select from '@radix-ui/react-select'
 import { ComponentProps } from 'react'
 
 export interface ContentProps extends ComponentProps<typeof Select.Content> {}
@@ -14,7 +14,7 @@ export function Content({ children, ...props }: ContentProps) {
         sideOffset={8}
         side="bottom"
         position="popper"
-        className="group z-10 w-[var(--radix-select-trigger-width)] animate-slideUpAndFade overflow-hidden rounded-lg border border-zinc-200 bg-white will-change-[opacity,transform] dark:border-zinc-700 dark:bg-zinc-800"
+        className="group z-10 w-[var(--radix-select-trigger-width)] animate-slideDownAndFade overflow-hidden rounded-lg border border-zinc-200 bg-white will-change-[opacity,transform] dark:border-zinc-700 dark:bg-zinc-800"
       >
         <ScrollArea.Root className="h-full w-full" type="auto">
           <Select.Viewport className="max-h-[300px]" asChild>

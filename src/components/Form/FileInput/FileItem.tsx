@@ -1,6 +1,6 @@
 import { Button } from '@/components/Button'
+import { formatBytes } from '@/utils/format-bytes'
 import { CheckCircle2, Image as ImageIcon, Trash2 } from 'lucide-react'
-import { useMemo } from 'react'
 import { tv, VariantProps } from 'tailwind-variants'
 
 const fileItem = tv({
@@ -33,23 +33,11 @@ const fileItem = tv({
 export interface FileItemProps extends VariantProps<typeof fileItem> {
   name: string
   size: number
-  type: string
+  type?: string
 }
 
-export function FileItem({ state, name, size, type }: FileItemProps) {
+export function FileItem({ state, name, size }: FileItemProps) {
   const uploadProgress = state === 'complete' ? '100%' : '25%'
-
-  const fileSize = useMemo(() => {
-    const fileSizeInKB = size / 1024
-
-    if (fileSizeInKB > 1024) {
-      const fileSizeInMB = fileSizeInKB / 1024
-
-      return fileSizeInMB.toFixed(1).concat(' MB')
-    }
-
-    return fileSizeInKB.toFixed(1).concat(' KB')
-  }, [size])
 
   const { base, icon, deleteButton } = fileItem({ state })
 
@@ -84,7 +72,7 @@ export function FileItem({ state, name, size, type }: FileItemProps) {
               {name}
             </span>
             <span className="text-sm text-zinc-500 dark:text-zinc-400">
-              {fileSize}
+              {formatBytes(size)}
             </span>
           </div>
 

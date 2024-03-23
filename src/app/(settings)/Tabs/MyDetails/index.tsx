@@ -1,38 +1,30 @@
-import * as Input from '@/components/Form/Input'
-import * as FileInput from '@/components/Form/FileInput'
-import * as Select from '@/components/Form/Select'
-import { Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react'
 import { Button } from '@/components/Button'
-import { SettingsTabs } from './SettingsTabs'
-import { CountrySelect } from './CountrySelect'
+import * as FileInput from '@/components/Form/FileInput'
+import * as Input from '@/components/Form/Input'
+import * as Select from '@/components/Form/Select'
 import { Textarea } from '@/components/Form/Textarea'
+import { Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react'
+import { CountrySelect } from './CountrySelect'
 
-export default function Home() {
+export function MyDetails() {
   return (
-    <>
-      <h1 className="text-3xl font-medium text-zinc-900 dark:text-zinc-100">
-        Settings
-      </h1>
-      <SettingsTabs />
-      <div className="mt-6 flex flex-col">
-        <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
-          <div className="flex flex-col gap-1">
-            <h2 className="text-lg font-medium text-zinc-900 dark:text-white">
-              Personal info
-            </h2>
-            <span className="text-sm text-zinc-500 dark:text-zinc-400">
-              Update your photo and personal details here.
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <Button type="button" variant="outline">
-              Cancel
-            </Button>
-            <Button type="submit" form="settings" variant="primary">
-              Save
-            </Button>
-          </div>
+    <div className="flex flex-col mt-6">
+      <div className="flex flex-col justify-between pb-5 border-b border-zinc-200 gap-4 lg:flex-row lg:items-center">
+        <div className="space-y-1">
+          <h2 className="text-lg font-medium text-zinc-900  dark:text-white">
+            Personal info
+          </h2>
+          <span className="text-sm text-zinc-500 dark:text-zinc-400">
+            Update your photo and personal details here.
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" type="button">
+            Cancel
+          </Button>
+          <Button variant="primary" type="submit" form="settings">
+            Save
+          </Button>
         </div>
       </div>
 
@@ -53,14 +45,14 @@ export default function Home() {
                 name="firstName"
                 id="firstName"
                 type="text"
-                defaultValue="Diego"
+                placeholder="First name"
               />
             </Input.Root>
             <Input.Root>
               <Input.Control
                 name="lastName"
                 type="text"
-                defaultValue="Fernandes"
+                placeholder="Last name"
               />
             </Input.Root>
           </div>
@@ -82,7 +74,7 @@ export default function Home() {
                 id="email"
                 type="email"
                 name="email"
-                defaultValue="diego.schell.f@gmail.com"
+                placeholder="Email address"
               />
             </Input.Root>
           </div>
@@ -117,11 +109,7 @@ export default function Home() {
           </label>
           <div className="flex gap-3">
             <Input.Root>
-              <Input.Control
-                name="role"
-                id="role"
-                defaultValue="Product Designer"
-              />
+              <Input.Control name="role" id="role" placeholder="Your role" />
             </Input.Root>
           </div>
         </div>
@@ -204,7 +192,7 @@ export default function Home() {
             <Textarea
               name="bio"
               id="bio"
-              defaultValue="I'm a Product Designer based in Melbourne, Australia. I specialise in UX/UI design, brand strategy, and Webflow development."
+              placeholder="I'm a Product Designer based in Melbourne, Australia. I specialise in UX/UI design, brand strategy, and Webflow development."
             />
           </div>
         </div>
@@ -219,10 +207,10 @@ export default function Home() {
               Share a few snippets of your work.
             </span>
           </label>
-          <FileInput.Root id="projects" multiple>
+          <FileInput.Root id="projects">
             <FileInput.Trigger />
             <FileInput.FileList />
-            <FileInput.Control />
+            <FileInput.Control multiple />
           </FileInput.Root>
         </div>
 
@@ -235,6 +223,6 @@ export default function Home() {
           </Button>
         </div>
       </form>
-    </>
+    </div>
   )
 }

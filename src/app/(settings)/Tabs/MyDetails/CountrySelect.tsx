@@ -9,7 +9,7 @@ export interface CountrySelectProps {}
 
 type CountryCode = keyof typeof countries
 
-export function CountrySelect(props: CountrySelectProps) {
+export function CountrySelect() {
   const [value, setValue] = useState<CountryCode | undefined>(undefined)
 
   function handleCountrySelected(value: string) {
